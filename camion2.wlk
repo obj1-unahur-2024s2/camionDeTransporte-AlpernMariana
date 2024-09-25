@@ -1,10 +1,12 @@
-import cosas.*
+import cosas2.*
 object camion {
   const carga = []
 
-  method cargar(algo){carga.add(algo)}
+  method cargar(algo){carga.add(algo)
+         algo.consecuenciaCarga()}
   method descargar(algo){carga.remove(algo)}
-  method cargarVariasCosas(listaCosas){carga.addAll(listaCosas)}
+  method cargarVariasCosas(listaCosas){carga.addAll(listaCosas)
+         listaCosas.forEach({c => c.consecuenciaCarga()})}
   method pesoTotal() = 1000 + carga.sum({c => c.peso()})
   method pesosDeLaCarga() = carga.map({c => c.peso()})
   method todoPesoEsImpar() = self.pesosDeLaCarga().all({e => e.odd()})
